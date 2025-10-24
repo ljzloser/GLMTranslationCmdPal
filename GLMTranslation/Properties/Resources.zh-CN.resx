@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApiKey" xml:space="preserve">
+    <value>ApiKey</value>
+  </data>
+  <data name="ApiKey_Des" xml:space="preserve">
+    <value>从智谱清言Api官网获取到的ApiKey</value>
+  </data>
+  <data name="GetApiKeyUrlInfo" xml:space="preserve">
+    <value>点击后从该网站获取你的ApiKey，并在扩展设置中填入</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>模型</value>
+  </data>
+  <data name="Model_Default" xml:space="preserve">
+    <value>glm-4.5-flash</value>
+  </data>
+  <data name="Model_Des" xml:space="preserve">
+    <value>智谱清言AI模型名称</value>
+  </data>
+  <data name="SpaceFinish" xml:space="preserve">
+    <value>空格判断输入结束</value>
+  </data>
+  <data name="SpaceFinish_Default" xml:space="preserve">
+    <value>true</value>
+  </data>
+  <data name="SpaceFinish_Des" xml:space="preserve">
+    <value>按下空格键开始搜索，防止无用的API请求</value>
+  </data>
+  <data name="SystemText" xml:space="preserve">
+    <value>你是一个专业的翻译助手。请将提供的源内容准确翻译成{0}。
+
+要求：
+1. 只返回JSON格式的翻译结果，不要添加任何解释、注释或额外内容
+2. 保持原文的语气和风格
+3. 确保翻译准确、自然、流畅
+4. 不要添加"翻译结果："等前缀
+5. 直接输出JSON格式的翻译结果
+6.输出格式中的Json的key是你翻译语气或类型，你的输出不应该删除或者修改key,你的翻译结果应该放到对应key的value中。
+
+输入格式：
+[待翻译文本]
+
+输出格式：
+{1}
+请严格遵循以上要求，只提供纯净的JSON格式翻译结果。</value>
+  </data>
+  <data name="Target_Language" xml:space="preserve">
+    <value>目标语言</value>
+  </data>
+  <data name="Target_Language_Default" xml:space="preserve">
+    <value>英文</value>
+  </data>
+  <data name="Target_Language_Des" xml:space="preserve">
+    <value>翻译后的目标语言</value>
+  </data>
+  <data name="Target_Modes" xml:space="preserve">
+    <value>翻译类型</value>
+  </data>
+  <data name="Target_Modes_Default" xml:space="preserve">
+    <value>专业的,简洁的</value>
+  </data>
+  <data name="Target_Modes_Des" xml:space="preserve">
+    <value>请使用逗号分割你要翻译的类型,他将会以提示词的形式嵌入到发给AI的内容</value>
+  </data>
+  <data name="Url" xml:space="preserve">
+    <value>Url</value>
+  </data>
+  <data name="Url_Default" xml:space="preserve">
+    <value>https://open.bigmodel.cn/api/paas/v4/chat/completions</value>
+  </data>
+  <data name="Url_Des" xml:space="preserve">
+    <value>智谱清言AI API Url</value>
+  </data>
+</root>
