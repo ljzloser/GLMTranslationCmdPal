@@ -169,7 +169,7 @@ namespace GLMTranslation.Properties {
         }
         
         /// <summary>
-        ///   查找类似 待翻译的源语言 的本地化字符串。
+        ///   查找类似 Source Language 的本地化字符串。
         /// </summary>
         internal static string Source_Language_Des {
             get {

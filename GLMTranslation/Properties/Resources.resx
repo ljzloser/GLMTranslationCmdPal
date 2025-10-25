@@ -154,7 +154,7 @@
     <value>Chinese</value>
   </data>
   <data name="Source_Language_Des" xml:space="preserve">
-    <value>待翻译的源语言</value>
+    <value>Source Language</value>
   </data>
   <data name="SpaceFinish" xml:space="preserve">
     <value>SpaceFinish</value>

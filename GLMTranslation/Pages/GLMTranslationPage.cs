@@ -4,7 +4,7 @@
 
 using GLMTranslation.Commands;
 using GLMTranslation.Helpers;
-using GLMTranslation.Model;
+using GLMTranslation.Models;
 using GLMTranslation.Properties;
 using Microsoft.CommandPalette.Extensions;
 using Microsoft.CommandPalette.Extensions.Toolkit;
@@ -17,27 +17,31 @@ using System.Threading;
 
 namespace GLMTranslation;
 
-internal partial class GLMTranslationPage : DynamicListPage, IDisposable, IFallbackHandler
+internal sealed partial class GLMTranslationPage : DynamicListPage, IDisposable, IFallbackHandler
 {
     /// <summary>
     /// 用于显示的命令列表
     /// </summary>
     private readonly List<IListItem> items = [];
+
     private readonly HttpClient httpClient = new();
+
     /// <summary>
     /// 线程锁主要是保护取消令牌
     /// </summary>
     private readonly Lock @lock = new();
+
     /// <summary>
     /// http请求的取消令牌
     /// </summary>
-    CancellationTokenSource _cts = new();
+    private CancellationTokenSource _cts = new();
+
     public GLMTranslationPage()
     {
         Icon = IconHelpers.FromRelativePath("Assets\\StoreLogo.png");
         Title = "GLMTranslation";
         Name = "Open";
-        httpClient.Timeout = TimeSpan.FromSeconds(10);
+        //httpClient.Timeout = TimeSpan.FromSeconds(10);
     }
 
     public void Dispose()
@@ -49,30 +53,28 @@ internal partial class GLMTranslationPage : DynamicListPage, IDisposable, IFallb
     public override IListItem[] GetItems()
     {
         return [.. items];
-
     }
 
     public void UpdateQuery(string query)
     {
         // 如果正在处理，或者查询为空，直接返回
         if (IsLoading || string.IsNullOrEmpty(query)) return;
+        IsLoading = true;
+        items.Clear();
         try
         {
-            IsLoading = true;
-            items.Clear();
             // 先检查APIKey，如果有就请求API
             if (ValidateApiKey()) RequestQuery(query);
-            // 通知命令面板更新
-            RaiseItemsChanged(items.Count);
-            IsLoading = false;
         }
         catch (Exception ex)
         {
             items.Add(new ListItem(new CommandItem($"{ex.GetType().Name}: {ex.Message}")));
-            IsLoading = false;
         }
-
+        IsLoading = false;
+        // 通知命令面板更新
+        RaiseItemsChanged(items.Count);
     }
+
     /// <summary>
     /// 检查APIKey，如果没有就添加一个能打开链接的命令
     /// </summary>
@@ -93,6 +95,7 @@ internal partial class GLMTranslationPage : DynamicListPage, IDisposable, IFallb
         });
         return false;
     }
+
     /// <summary>
     /// 请求API并根据返回结果添加命令
     /// </summary>
@@ -108,8 +111,7 @@ internal partial class GLMTranslationPage : DynamicListPage, IDisposable, IFallb
             cts = _cts;
         }
         var requestModel = BuildRequest(query);
-        string requestContent = JsonSerializer.Serialize(requestModel);
-        var a = Instance.Settings.ApiKey;
+        string requestContent = JsonSerializer.Serialize(requestModel, ModelContext.Default.RequestModel);
         var request = new HttpRequestMessage(HttpMethod.Post, Instance.Settings.Url);
         request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Instance.Settings.ApiKey);
         request.Content = new StringContent(requestContent, System.Text.Encoding.UTF8, "application/json");
@@ -127,6 +129,7 @@ internal partial class GLMTranslationPage : DynamicListPage, IDisposable, IFallb
             AddResponseItems(responseContent);
         }
     }
+
     /// <summary>
     /// 添加翻译结果的命令
     /// </summary>
@@ -185,8 +188,11 @@ internal partial class GLMTranslationPage : DynamicListPage, IDisposable, IFallb
     {
         if (Instance.Settings.SpaceFinish && newSearch.Length > 0 && newSearch[^1] != ' ')
             return;
-        UpdateQuery(newSearch);
+        var query = newSearch.Trim();
+        if (string.IsNullOrEmpty(query)) return;
+        UpdateQuery(query);
     }
+
     /// <summary>
     /// 构建请求
     /// </summary>
@@ -216,16 +222,15 @@ internal partial class GLMTranslationPage : DynamicListPage, IDisposable, IFallb
         {
              Instance.Settings.SourceLanguage,
              Instance.Settings.TargetLanguage,
-             JsonSerializer.Serialize(dic)
-
+             JsonSerializer.Serialize(dic,ModelContext.Default.DictionaryStringDictionaryStringString)
         };
-        var system_text = string.Format(System.Globalization.CultureInfo.InvariantCulture, Instance.SystemText, args);
+        var system_text = string.Format(System.Globalization.CultureInfo.InvariantCulture, Instance.SystemText ?? "", args);
         return new RequestModel
         {
-            model = Instance.Settings.Model,
-            messages = [
-                    new MessageModel { role = "system", content = system_text },
-                        new MessageModel { role = "user", content = text }
+            Model = Instance.Settings.Model,
+            Messages = [
+                    new MessageModel { Role = "system", Content = system_text },
+                        new MessageModel { Role = "user", Content = text }
                 ]
         };
     }

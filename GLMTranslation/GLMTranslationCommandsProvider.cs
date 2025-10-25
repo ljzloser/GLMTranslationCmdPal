@@ -26,5 +26,4 @@ public partial class GLMTranslationCommandsProvider : CommandProvider
     {
         return _commands;
     }
-
 }
