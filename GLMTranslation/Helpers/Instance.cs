@@ -29,6 +29,7 @@ namespace GLMTranslation.Helpers
         {
             List<string> strings =
             [
+                _SystemTextModel.Role_title,
                 _SystemTextModel.Role,
                 _SystemTextModel.Rqstd_title,
                 .. _SystemTextModel.Rqstd,

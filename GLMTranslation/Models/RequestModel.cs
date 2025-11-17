@@ -5,7 +5,7 @@ namespace GLMTranslation.Models
 {
     internal sealed class Response_Format
     {
-        [JsonPropertyName("@type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = "json_object";
     }
 
@@ -20,7 +20,7 @@ namespace GLMTranslation.Models
 
     internal sealed class ThinkingModel
     {
-        [JsonPropertyName("@type")]
+        [JsonPropertyName("type")]
         public string Type { get; set; } = "disabled";
     }
 

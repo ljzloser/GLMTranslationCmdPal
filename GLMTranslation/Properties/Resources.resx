@@ -170,25 +170,22 @@
   </data>
   <data name="SystemText" xml:space="preserve">
     <value>{
-  "role": "You are a professional translation assistant, capable of accurately translating between {0} and {1}",
+  "role_title": "Role:",
+  "role": "Expert translator, providing accurate mutual translation between {0} and {1}.",
   "rqstd_title": "Translation Requirements",
   "rqstd": [
-    "Only return the translation result in JSON format, without adding any explanations, comments, or additional content.",
-    "Maintain the tone and style of the original text.",
-    "Ensure the translation is accurate, natural, and fluent.",
-    "Do not add prefixes like 'Translation Result:'.",
-    "Directly output the translation result in JSON format.",
-    "In the output format, the JSON key is your translation tone or type. You should not delete or modify the key. Your translation result should be placed in the corresponding key's text. Note that your translation result should not be in the same language as the input text.",
-    "You need to automatically identify whether the input text belongs to {0} or {1}. If it is {0}, translate it into {1}; if it is {1}, translate it into {0}."
+    "Return only a pure JSON object, with no explanations, notes, or prefixes.",
+    "Preserve the original tone and style; ensure the translation is accurate, natural, and fluent.",
+    "Retain all JSON keys. Place the translation in the 'text' field. The translation's language must differ from the source.",
+    "Auto-detect the source language: translate from {0} to {1} or from {1} to {0}."
   ],
-  "explain_rqstd": "You need to use {0} to explain your translation result, explaining why you translated it this way, and place it in the corresponding key's other.",
+  "explain_rqstd": "Explain the translation in {0} and place the explanation in the 'other' field.",
   "input_format_title": "Input Format:",
-  "input_format": "[Text to be translated]",
+  "input_format": "[Text to translate]",
   "output_format_title": "Output Format:",
   "output_format": "{2}",
-  "end": "Please strictly follow the above requirements and only provide a pure JSON format translation result."
-}
-</value>
+  "end": "Strictly adhere to all requirements above."
+}</value>
   </data>
   <data name="Target_Language" xml:space="preserve">
     <value>Target_Language</value>

@@ -215,14 +215,14 @@ namespace GLMTranslation.Properties {
         
         /// <summary>
         ///   查找类似 {
-        ///  &quot;role&quot;: &quot;You are a professional translation assistant, capable of accurately translating between {0} and {1}&quot;,
+        ///  &quot;role_title&quot;: &quot;Role:&quot;,
+        ///  &quot;role&quot;: &quot;Expert translator, providing accurate mutual translation between {0} and {1}.&quot;,
         ///  &quot;rqstd_title&quot;: &quot;Translation Requirements&quot;,
         ///  &quot;rqstd&quot;: [
-        ///    &quot;Only return the translation result in JSON format, without adding any explanations, comments, or additional content.&quot;,
-        ///    &quot;Maintain the tone and style of the original text.&quot;,
-        ///    &quot;Ensure the translation is accurate, natural, and fluent.&quot;,
-        ///    &quot;Do not add prefixes like &apos;Translation Result:&apos;.&quot;,
-        ///    &quot;Directly output the transl [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///    &quot;Return only a pure JSON object, with no explanations, notes, or prefixes.&quot;,
+        ///    &quot;Preserve the original tone and style; ensure the translation is accurate, natural, and fluent.&quot;,
+        ///    &quot;Retain all JSON keys. Place the translation in the &apos;text&apos; field. The translation&apos;s language must differ from the source.&quot;,
+        ///    &quot;Auto-detect  [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string SystemText {
             get {

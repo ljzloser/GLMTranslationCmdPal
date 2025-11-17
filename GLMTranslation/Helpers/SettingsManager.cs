@@ -62,6 +62,13 @@ namespace GLMTranslation.Helpers
             true
             );
 
+        private readonly TextSetting _temperature = new(
+            "Temperature",
+            "temperature",
+            "temperature",
+            "0.5"
+            );
+
         public string Model => _model.Value ?? Resources.Url_Default;
         public string TargetLanguage => _target_language.Value ?? Resources.Target_Language_Default;
         public string TargetModes => _target_modes.Value ?? Resources.Url_Default;
@@ -70,6 +77,18 @@ namespace GLMTranslation.Helpers
         public bool SpaceFinish => _spaceFinish.Value;
         public string SourceLanguage => _source_language.Value ?? Resources.Source_Language_Default;
         public bool Explain => _explain.Value;
+
+        public double Temperature
+        {
+            get
+            {
+                double result;
+                result = double.Parse(_temperature.Value ?? "0.5", System.Globalization.CultureInfo.InvariantCulture);
+                if (result < 0 || result > 1)
+                    result = 0.5;
+                return result;
+            }
+        }
 
         internal static string SettingsPath()
         {
@@ -84,6 +103,7 @@ namespace GLMTranslation.Helpers
             Settings.Add(_url);
             Settings.Add(_apikey);
             Settings.Add(_model);
+            Settings.Add(_temperature);
             Settings.Add(_source_language);
             Settings.Add(_target_language);
             Settings.Add(_target_modes);

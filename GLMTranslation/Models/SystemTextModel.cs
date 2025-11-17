@@ -5,6 +5,9 @@ namespace GLMTranslation.Models
 {
     internal sealed class SystemTextModel
     {
+        [JsonPropertyName("role_title")]
+        public string Role_title { get; set; } = string.Empty;
+
         [JsonPropertyName("role")]
         public string Role { get; set; } = string.Empty;
 

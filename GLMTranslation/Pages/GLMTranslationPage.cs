@@ -158,7 +158,7 @@ internal sealed partial class GLMTranslationPage : DynamicListPage, IDisposable,
 
             var item = new ListItem(new CopyCommand(text))
             {
-                Title = text.Length > 50 ? text[..50] + "..." : text,
+                Title = text,
                 Subtitle = key,
                 MoreCommands = Instance.LoadCommands(text),
             };
@@ -189,7 +189,6 @@ internal sealed partial class GLMTranslationPage : DynamicListPage, IDisposable,
         if (Instance.Settings.SpaceFinish && newSearch.Length > 0 && newSearch[^1] != ' ')
             return;
         var query = newSearch.Trim();
-        if (string.IsNullOrEmpty(query)) return;
         UpdateQuery(query);
     }
 
